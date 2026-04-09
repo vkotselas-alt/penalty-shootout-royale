@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penalty Shootout Royale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-card">
+      <div>
+        <p class="eyebrow">Mini Browser Soccer Game</p>
+        <h1>Penalty Shootout Royale</h1>
+        <p class="subtitle">Pick a mode, bend your shot into the corners, and survive the tournament under the stadium lights.</p>
+      </div>
+
+      <div class="hero-badges">
+        <span>Single Player</span>
+        <span>Tournament</span>
+        <span>Two Player</span>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <div class="hud-card">
+        <div class="stat">
+          <span class="stat-label">Score</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Shots Left</span>
+          <strong id="shots-left">5</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Round</span>
+          <strong id="round-label">Practice</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Turn</span>
+          <strong id="turn-label">Player 1</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Best</span>
+          <strong id="best-score">0</strong>
+        </div>
+      </div>
+
+      <aside class="control-card">
+        <div class="control-group">
+          <label for="mode-select">Mode</label>
+          <select id="mode-select">
+            <option value="single">Single Player</option>
+            <option value="tournament">Tournament</option>
+            <option value="duel">Two Player Duel</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="difficulty-select">Difficulty</label>
+          <select id="difficulty-select">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <button id="start-button" type="button">Start Match</button>
+          <button id="mute-button" type="button" class="secondary">Sound On</button>
+        </div>
+
+        <div class="help-list">
+          <p><strong>Aim:</strong> Arrow keys or drag on the field</p>
+          <p><strong>Power:</strong> Space to lock in the power bar and shoot</p>
+          <p><strong>Height:</strong> Up and Down arrows for low or top-corner shots</p>
+          <p><strong>Restart:</strong> Press R anytime</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="game-card">
+      <canvas id="game" width="960" height="600" aria-label="Soccer penalty shootout game"></canvas>
+
+      <div class="power-panel">
+        <div class="power-header">
+          <span>Shot Power</span>
+          <strong id="power-value">50%</strong>
+        </div>
+        <div class="power-track">
+          <div id="power-fill" class="power-fill"></div>
+        </div>
+      </div>
+
+      <div class="mobile-controls">
+        <div class="mobile-row">
+          <button type="button" data-action="left">Left</button>
+          <button type="button" data-action="up">High</button>
+          <button type="button" data-action="right">Right</button>
+        </div>
+        <div class="mobile-row">
+          <button type="button" data-action="down">Low</button>
+          <button type="button" data-action="shoot" class="shoot-button">Shoot</button>
+          <button type="button" data-action="restart">Restart</button>
+        </div>
+      </div>
+
+      <div class="overlay" id="overlay">
+        <div class="panel">
+          <p class="eyebrow" id="overlay-tag">Kickoff</p>
+          <h2 id="overlay-title">Rule the shootout</h2>
+          <p id="overlay-text">Choose a mode, then use your aim and timing to beat the keeper. Tournament mode adds target scores across three rounds.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
